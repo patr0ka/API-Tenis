@@ -6,12 +6,12 @@ import Tenis from "./entities/tenis";
 
 export const AppDataSource = new DataSource({
  type: "postgres",
- host: "localhost", // se Node está fora do Docker
+ host: "localhost",
  port: 5433,
  username: "postgres",
  password: "docker",
  database: "postgres",
- synchronize: true, // sempre false em produção/migrations
+ synchronize: true,
  logging: false,
  entities: [Tenis],
  migrations: [path.join(__dirname, "migrations", "*.ts")],
