@@ -27,7 +27,10 @@ export default class Tenis {
   material: string; 
 
   @Column('decimal', { precision: 10, scale: 2 })
-  price: number; 
+  price: number;
+
+  @Column('int', { default: 1 })
+  quantity: number;
 
   @CreateDateColumn()
   created_at: Date;
