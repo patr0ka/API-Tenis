@@ -13,6 +13,14 @@ export default class DeleteTenisService {
         if (!tenis) {
             throw new AppError("Tenis not found.");
         }
-        await tenisRepository.remove(tenis);
+        
+        // Se quantidade é 1, deleta o registro
+        if (tenis.quantity === 1) {
+            await tenisRepository.remove(tenis);
+        } else {
+            // Se quantidade é maior que 1, subtrai 1
+            tenis.quantity -= 1;
+            await tenisRepository.save(tenis);
+        }
     }
 }
